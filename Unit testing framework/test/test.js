@@ -12,6 +12,9 @@ describe("calculator", function () {
     it("addition happens in case of 1 and -3", function () {
       assert.equal(calculator.add(1, -3), -2);
     });
+    it("Throws error if input is not number", function () {
+      assert.throws(calculator.add("string", "sadsa"), "Number is required");
+    });
   });
   describe("multiply", function () {
     it("type of the multiplication should be number", function () {
@@ -22,6 +25,9 @@ describe("calculator", function () {
     });
     it("multiplication happens in case of 1 and -3", function () {
       assert.equal(calculator.multiply(12, -3), -36);
+    });
+    it("Throws error if input is not number", function () {
+      assert.throws(calculator.multiply("string", "fse"), "Number is required");
     });
   });
 });
