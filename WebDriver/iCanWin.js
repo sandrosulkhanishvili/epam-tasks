@@ -17,8 +17,8 @@ async function iCanWin() {
     .findElement(By.id("select2-postform-expiration-container"))
     .click();
   await driver
-    .findElement(By.id("select2-postform-expiration-container"))
-    .sendKeys(Key.ARROW_DOWN);
+    .findElement(By.xpath('//li [contains(text(), "10 Minutes")]'))
+    .click();
   //Paste Name / Title: "helloweb"
   await driver.findElement(By.id("postform-name")).sendKeys("helloweb");
 }
