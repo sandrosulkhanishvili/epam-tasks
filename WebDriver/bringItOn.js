@@ -36,7 +36,7 @@ async function bringItOn() {
   await driver
     .findElement(By.xpath('//button [contains(text(), "Create New Paste")]'))
     .click();
-  await driver.manage().setTimeouts({ implicit: 100000 });
+  await driver.manage().setTimeouts({ implicit: 10000 });
   assert.equal(
     await driver.findElement(By.xpath("//h1")).getText(),
     "how to gain dominance among developers"
