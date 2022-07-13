@@ -2,7 +2,7 @@
 const { By, until } = require("selenium-webdriver");
 const Page = require("./page");
 
-class BringItOnSaved extends Page {
+class PastebinSavedPastePage extends Page {
   constructor(driver) {
     super(driver);
     //second page
@@ -27,4 +27,4 @@ class BringItOnSaved extends Page {
   }
 }
 
-module.exports = BringItOnSaved;
+module.exports = PastebinSavedPastePage;

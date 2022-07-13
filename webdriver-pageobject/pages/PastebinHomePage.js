@@ -2,7 +2,7 @@ const { By, until } = require("selenium-webdriver");
 
 const Page = require("./page");
 
-class BringItOn extends Page {
+class PastebinHomePage extends Page {
   constructor(driver) {
     super(driver);
 
@@ -11,9 +11,10 @@ class BringItOn extends Page {
     this.syntaxForm = By.id("select2-postform-format-container");
     this.expirationForm = By.id("select2-postform-expiration-container");
     this.title = By.id("postform-name");
-    this.createNewPasteButton = By.xpath(
-      '//button [contains(text(), "Create New Paste")]'
-    );
+    this.createNewPasteButton = By.xpath('//button [contains(text(), "Create New Paste")]');
+
+    this.syntaxFormBash = By.xpath('//li [contains(text(), "Bash")]');
+    this.expirationForm10Min = By.xpath('//li [contains(text(), "10 Minutes")]');
   }
   async open() {
     await super.open("https://pastebin.com/");
@@ -41,4 +42,4 @@ class BringItOn extends Page {
   }
 }
 
-module.exports = BringItOn;
+module.exports = PastebinHomePage;
