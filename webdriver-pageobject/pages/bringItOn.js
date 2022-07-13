@@ -3,12 +3,9 @@ const { By, until } = require("selenium-webdriver");
 const Page = require("./page");
 
 class BringItOn extends Page {
-  constructor() {
-    super();
-    //second page
-    this.textArea = By.className("js-paste-raw");
-    this.title = By.xpath("//h1");
-    this.syntax = By.xpath('//a [contains(text(), "Bash")]');
+  constructor(driver) {
+    super(driver);
+
     //first page
     this.pasteTextArea = By.name("PostForm[text]");
     this.syntaxForm = By.id("select2-postform-format-container");
@@ -41,16 +38,6 @@ class BringItOn extends Page {
 
   async savePaste() {
     await this.driver.findElement(this.createNewPasteButton).click();
-  }
-  async getPaste() {
-    await this.driver.wait(until.elementLocated(this.textArea), 30000);
-    return this.driver.findElement(this.textArea).getText();
-  }
-  async getTitle() {
-    return this.driver.findElement(this.title).getText();
-  }
-  async getSyntax() {
-    return this.driver.findElement(this.syntax).getText();
   }
 }
 
