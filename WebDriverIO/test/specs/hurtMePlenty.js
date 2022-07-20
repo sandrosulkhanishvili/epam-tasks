@@ -10,8 +10,15 @@ describe("hurtMePlenty", () => {
     await googleCloudMainPage.search(SEARCHTEXT);
 
     await googleSearchPage.searchResult.click();
-    // await browser.pause(6000);
-    // // await googleCloudCalculatorPage.numInstances.click();
+
+    //using findElement --> invalid argument: invalid argument: missing 'ELEMENT'
+    // const iframe = await browser.findElement("xpath", "//iframe[@name='goog_1386724524']");
+    // await browser.switchToFrame(iframe);
+
+    // using num as property ---> it should work bcs its first iframe
+    await browser.switchToFrame(0);
+
+    // await googleCloudCalculatorPage.numInstances.click();
     await googleCloudCalculatorPage.numInstances.setValue("4");
     await googleCloudCalculatorPage.series.click();
     await googleCloudCalculatorPage.seriesChoiseN1.click();
@@ -27,7 +34,6 @@ describe("hurtMePlenty", () => {
     await googleCloudCalculatorPage.committedUsage.click();
     await googleCloudCalculatorPage.committedUsageCoice.click();
     await googleCloudCalculatorPage.btnEstimate.click();
-    // await browser.pause(6000);
   });
 
   it("should have correct provisioning model", async () => {
