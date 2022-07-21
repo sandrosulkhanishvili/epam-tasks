@@ -7,6 +7,7 @@ describe("hurtMePlenty", () => {
 
   before(async () => {
     await googleCloudMainPage.open();
+    await browser.maximizeWindow();
     await googleCloudMainPage.search(SEARCHTEXT);
 
     await googleSearchPage.searchResult.click();
@@ -17,22 +18,33 @@ describe("hurtMePlenty", () => {
 
     // using num as property ---> it should work bcs its first iframe
     await browser.switchToFrame(0);
+    await browser.switchToFrame(0);
 
-    // await googleCloudCalculatorPage.numInstances.click();
     await googleCloudCalculatorPage.numInstances.setValue("4");
+
     await googleCloudCalculatorPage.series.click();
-    await googleCloudCalculatorPage.seriesChoiseN1.click();
+    await googleCloudCalculatorPage.seriesChoiceN1.click();
+
     await googleCloudCalculatorPage.machineType.click();
     await googleCloudCalculatorPage.machineTypeChoice.click();
+
     await googleCloudCalculatorPage.addGPU.click();
+
     await googleCloudCalculatorPage.GPUType.click();
     await googleCloudCalculatorPage.GPUTypeChoice.click();
+
     await googleCloudCalculatorPage.numberGPU.click();
     await googleCloudCalculatorPage.numberGPUChoice.click();
+
     await googleCloudCalculatorPage.localSSD.click();
     await googleCloudCalculatorPage.localSSDChoice.click();
+
+    await googleCloudCalculatorPage.location.click();
+    await googleCloudCalculatorPage.locationChoice.click();
+
     await googleCloudCalculatorPage.committedUsage.click();
     await googleCloudCalculatorPage.committedUsageCoice.click();
+
     await googleCloudCalculatorPage.btnEstimate.click();
   });
 
@@ -52,6 +64,8 @@ describe("hurtMePlenty", () => {
     await expect(googleCloudCalculatorPage.testCommitmentTerm).toHaveTextContaining("Commitment term: 1 Year");
   });
   it("should have correct estimated cost", async () => {
-    await expect(googleCloudCalculatorPage.testEstimatedCost).toHaveTextContaining("USD 4,024.56");
+    await expect(googleCloudCalculatorPage.testEstimatedCost).toHaveTextContaining(
+      "Estimated Component Cost: USD 1,299.80 per 1 month"
+    );
   });
 });

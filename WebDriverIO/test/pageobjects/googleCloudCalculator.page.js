@@ -20,21 +20,21 @@ class googleCloudCalculatorPage extends Page {
   }
 
   get addGPU() {
-    return $("div=Add GPUs.");
+    return $("md-checkbox[aria-label='Add GPUs']");
   }
 
   get GPUType() {
-    return $("#select_487");
+    return $("#select_457");
   }
   get GPUTypeChoice() {
-    return $("#select_option_492"); // coise is NVIDIA tesla p100 bcs tesla v100 is unavilable. tesla v100 is 494
+    return $("#select_option_465"); // coise is NVIDIA tesla p100 bcs tesla v100 is unavilable. tesla v100 is 494
   }
 
   get numberGPU() {
     return $("#select_value_label_456");
   }
   get numberGPUChoice() {
-    return $("#select_option_498");
+    return $("#select_option_468");
   }
 
   get localSSD() {
@@ -42,6 +42,14 @@ class googleCloudCalculatorPage extends Page {
   }
   get localSSDChoice() {
     return $("#select_option_440");
+  }
+
+  //add location
+  get location() {
+    return $("#select_119");
+  }
+  get locationChoice() {
+    return $("#select_option_222");
   }
 
   get committedUsage() {
@@ -52,32 +60,32 @@ class googleCloudCalculatorPage extends Page {
   }
 
   get btnEstimate() {
-    return $("button=Add to Estimate");
+    return $("button[aria-label='Add to Estimate']");
   }
 
   //test
   get testProvisiningModel() {
-    return $("div=Provisioning model: Regular");
+    return $("md-list-item*=Provisioning model");
   }
 
   get testInstanceType() {
-    return $("div*=Instance type: n1-standard-8");
+    return $("md-list-item*=Instance type");
   }
 
   get testRegion() {
-    return $("div=Region: Frankfurt");
+    return $("md-list-item*=Region:");
   }
 
   get testSSD() {
-    return $("div*=Local SSD: 2x375 GiB");
+    return $("md-list-item*=Local SSD");
   }
 
   get testCommitmentTerm() {
-    return $("div=Commitment term: 1 Year");
+    return $("md-list-item*=Commitment");
   }
 
   get testEstimatedCost() {
-    return $("b*=USD 4,024.56");
+    return $("b*=USD");
   }
 }
 
