@@ -12,11 +12,6 @@ describe("hurtMePlenty", () => {
 
     await googleSearchPage.searchResult.click();
 
-    //using findElement --> invalid argument: invalid argument: missing 'ELEMENT'
-    // const iframe = await browser.findElement("xpath", "//iframe[@name='goog_1386724524']");
-    // await browser.switchToFrame(iframe);
-
-    // using num as property ---> it should work bcs its first iframe
     await browser.switchToFrame(0);
     await browser.switchToFrame(0);
 

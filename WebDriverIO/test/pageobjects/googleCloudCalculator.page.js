@@ -27,7 +27,7 @@ class googleCloudCalculatorPage extends Page {
     return $("#select_457");
   }
   get GPUTypeChoice() {
-    return $("md-option[value='NVIDIA_TESLA_V100']"); // coise is NVIDIA tesla p100 bcs tesla v100 is unavilable. tesla v100 is 494
+    return $("md-option[value='NVIDIA_TESLA_V100']");
   }
 
   get numberGPU() {
@@ -42,15 +42,12 @@ class googleCloudCalculatorPage extends Page {
   }
   get localSSDChoice() {
     return $("div=2x375 GB");
-    // return $("#select_option_440");
   }
 
   get location() {
     return $("#select_119");
   }
   get locationChoice() {
-    //   // return $("md-option[value='europe-west3']");
-    //   // return $("//md-option[@value='europe-west3']");
     return $("#select_option_222");
   }
 
