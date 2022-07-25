@@ -1,6 +1,10 @@
 const Page = require("./page");
 
-class googleCloudCalculatorPage extends Page {
+class GoogleCloudCalculatorPage extends Page {
+  get pageURL() {
+    return "https://cloud.google.com/products/calculator";
+  }
+
   get numInstances() {
     return $("#input_86");
   }
@@ -86,6 +90,18 @@ class googleCloudCalculatorPage extends Page {
   get testEstimatedCost() {
     return $("b*=USD");
   }
+
+  get btnEmail() {
+    return $("#email_quote");
+  }
+
+  get emailField() {
+    return $("input[type='email']");
+  }
+
+  get btnSendEmail() {
+    return $("button[aria-label='Send Email'");
+  }
 }
 
-module.exports = new googleCloudCalculatorPage();
+module.exports = new GoogleCloudCalculatorPage();

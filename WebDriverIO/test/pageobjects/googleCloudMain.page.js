@@ -1,6 +1,6 @@
 const Page = require("./page");
 
-class googleCloudMainPage extends Page {
+class GoogleCloudMainPage extends Page {
   get searchIcon() {
     return $(".devsite-searchbox");
   }
@@ -20,4 +20,4 @@ class googleCloudMainPage extends Page {
   }
 }
 
-module.exports = new googleCloudMainPage();
+module.exports = new GoogleCloudMainPage();
