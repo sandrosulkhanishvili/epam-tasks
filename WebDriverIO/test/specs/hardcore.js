@@ -19,39 +19,40 @@ describe("hardcore", () => {
     await googleCloudCalculatorPage.numInstances.setValue("4");
 
     await googleCloudCalculatorPage.series.click();
-    await browser.pause(2000);
+    await browser.pause(1000);
     await googleCloudCalculatorPage.seriesChoiceN1.click();
 
     await googleCloudCalculatorPage.machineType.click();
-    await browser.pause(2000);
+    await browser.pause(1000);
     await googleCloudCalculatorPage.machineTypeChoice.click();
 
     await googleCloudCalculatorPage.addGPU.click();
 
     await googleCloudCalculatorPage.GPUType.click();
-    await browser.pause(2000);
+    await browser.pause(1000);
     await googleCloudCalculatorPage.GPUTypeChoice.click();
 
     await googleCloudCalculatorPage.numberGPU.click();
-    await browser.pause(2000);
+    await browser.pause(1000);
     await googleCloudCalculatorPage.numberGPUChoice.click();
 
     await googleCloudCalculatorPage.localSSD.click();
-    await browser.pause(2000);
+    await browser.pause(1000);
     await googleCloudCalculatorPage.localSSDChoice.click();
 
     await googleCloudCalculatorPage.location.click();
-    await browser.pause(2000);
+    await browser.pause(1000);
     await googleCloudCalculatorPage.locationChoice.click();
 
     await googleCloudCalculatorPage.committedUsage.click();
-    await browser.pause(2000);
+    await browser.pause(1000);
     await googleCloudCalculatorPage.committedUsageCoice.click();
 
     await googleCloudCalculatorPage.btnEstimate.click();
     await googleCloudCalculatorPage.btnEmail.click();
 
     await temporaryEmailPage.openNewWindow();
+    await temporaryEmailPage.emailAdress.click();
     await temporaryEmailPage.copyEmailAdress.click();
 
     await browser.switchWindow(googleCloudCalculatorPage.pageURL);
@@ -60,12 +61,14 @@ describe("hardcore", () => {
     await googleCloudCalculatorPage.emailField.click();
     await browser.keys(["Shift", "Insert"]);
     await googleCloudCalculatorPage.btnSendEmail.click();
+
     await browser.switchWindow(temporaryEmailPage.pageURL);
+    await browser.pause(3000);
     await temporaryEmailPage.recivedEmail.click();
-    await browser.pause(5000);
   });
 
   it("should have correct estimated cost", async () => {
+    await browser.switchToFrame(2);
     await expect(temporaryEmailPage.estimatedCost).toHaveTextContaining("USD 1,081.20");
   });
 });

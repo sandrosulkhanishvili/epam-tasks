@@ -2,16 +2,19 @@ const Page = require("./page");
 
 class TemporaryEmailPage extends Page {
   get copyEmailAdress() {
-    return $("#click-to-copy");
+    return $("#cprnd");
   }
   get pageURL() {
-    return "https://temp-mail.org/";
+    return "https://yopmail.com/en/";
+  }
+  get emailAdress() {
+    return $("a[href='email-generator']");
   }
   get recivedEmail() {
-    return $("a*=Google Cloud Price Estimate");
+    return $("span*=Check Inbox");
   }
   get estimatedCost() {
-    return $("h2*=USD");
+    return $("h2");
   }
   openNewWindow() {
     return super.openNewWindow(this.pageURL);
