@@ -6,18 +6,21 @@ class GoogleCloudCalculatorPage extends Page {
   }
 
   get numInstances() {
-    return $("#input_86");
+    return $("#input_87");
   }
 
   get series() {
-    return $("#select_111");
+    // return $("#select_112");
+    return $("md-select[name='series']");
   }
   get seriesChoiceN1() {
-    return $("#select_option_196");
+    // return $("#select_option_197");
+    return $("md-option[value='n1']");
   }
 
   get machineType() {
-    return $("#select_value_label_82");
+    // return $("#select_value_label_83");
+    return $("md-select[placeholder='Instance type']");
   }
   get machineTypeChoice() {
     return $("md-option*=n1-standard-8");
@@ -28,38 +31,44 @@ class GoogleCloudCalculatorPage extends Page {
   }
 
   get GPUType() {
-    return $("#select_457");
+    // return $("#select_459");
+    return $("md-select[placeholder='GPU type']");
   }
   get GPUTypeChoice() {
     return $("md-option[value='NVIDIA_TESLA_V100']");
   }
 
   get numberGPU() {
-    return $("#select_value_label_456");
+    // return $("#select_value_label_458");
+    return $("md-select[placeholder='Number of GPUs']");
   }
   get numberGPUChoice() {
-    return $("#select_option_468");
+    return $("#select_option_470");
   }
 
   get localSSD() {
-    return $("#select_value_label_413");
+    // return $("#select_value_label_413");
+    return $("md-select[placeholder='Local SSD']");
   }
   get localSSDChoice() {
     return $("div=2x375 GB");
   }
 
   get location() {
-    return $("#select_119");
+    // return $("#select_120");
+    return $("md-select[placeholder='Datacenter location']");
   }
   get locationChoice() {
-    return $("#select_option_222");
+    return $("#select_option_224");
+    // return $("md-option[value='europe-west3']");
   }
 
   get committedUsage() {
-    return $("#select_value_label_85");
+    // return $("#select_value_label_86");
+    return $("md-select[placeholder='Committed usage']");
   }
   get committedUsageCoice() {
-    return $("#select_option_124");
+    return $("#select_option_125");
   }
 
   get btnEstimate() {
