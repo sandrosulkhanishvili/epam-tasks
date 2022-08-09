@@ -192,8 +192,8 @@ exports.config = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {Object}         browser      instance of created browser/device session
    */
-  before: function (capabilities, specs) {
-    browser.maximizeWindow();
+  before: async function (capabilities, specs) {
+    await browser.maximizeWindow();
   },
   /**
    * Runs before a WebdriverIO command gets executed.
@@ -235,8 +235,25 @@ exports.config = {
    * @param {Boolean} result.passed    true if test has passed, otherwise false
    * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
    */
-  // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-  // },
+  afterTest: async function (test, context, { error, result, duration, passed, retries }) {
+    if (error) {
+      const d = new Date();
+      const dateStringLiteral =
+        d.getDate() +
+        "_" +
+        d.getMonth() +
+        "_" +
+        d.getFullYear() +
+        "__" +
+        d.getHours() +
+        "h_" +
+        d.getMinutes() +
+        "m_" +
+        d.getSeconds() +
+        "s";
+      await browser.saveScreenshot(`./screenshots/${dateStringLiteral}.png`);
+    }
+  },
 
   /**
    * Hook that gets executed after the suite has ended

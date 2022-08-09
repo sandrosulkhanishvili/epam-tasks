@@ -1,6 +1,6 @@
-const googleCloudMainPage = require("../pageobjects/googleCloudMain.page");
-const googleSearchPage = require("../pageobjects/googleSearch.page");
-const googleCloudCalculatorPage = require("../pageobjects/googleCloudCalculator.page");
+const googleCloudMainPage = require("../pages/googleCloudMain.page");
+const googleSearchPage = require("../pages/googleSearch.page");
+const googleCloudCalculatorPage = require("../pages/googleCloudCalculator.page");
 
 describe("hurtMePlenty", () => {
   const SEARCHTEXT = "Google Cloud Platform Pricing Calculator";
@@ -16,35 +16,42 @@ describe("hurtMePlenty", () => {
 
     await googleCloudCalculatorPage.numInstances.setValue("4");
 
-    await googleCloudCalculatorPage.series.click();
-    await googleCloudCalculatorPage.seriesChoiceN1.waitForDisplayed({ timeout: 1000 });
-    await googleCloudCalculatorPage.seriesChoiceN1.click();
+    await googleCloudCalculatorPage.chooceFildes(
+      googleCloudCalculatorPage.series,
+      googleCloudCalculatorPage.seriesChoice
+    );
 
-    await googleCloudCalculatorPage.machineType.click();
-    await googleCloudCalculatorPage.machineTypeChoice.waitForDisplayed({ timeout: 1000 });
-    await googleCloudCalculatorPage.machineTypeChoice.click();
+    await googleCloudCalculatorPage.chooceFildes(
+      googleCloudCalculatorPage.machineType,
+      googleCloudCalculatorPage.machineTypeChoice
+    );
 
     await googleCloudCalculatorPage.addGPU.click();
 
-    await googleCloudCalculatorPage.GPUType.click();
-    await googleCloudCalculatorPage.GPUTypeChoice.waitForDisplayed({ timeout: 1000 });
-    await googleCloudCalculatorPage.GPUTypeChoice.click();
+    await googleCloudCalculatorPage.chooceFildes(
+      googleCloudCalculatorPage.GPUType,
+      googleCloudCalculatorPage.GPUTypeChoice
+    );
 
-    await googleCloudCalculatorPage.numberGPU.click();
-    await googleCloudCalculatorPage.numberGPUChoice.waitForDisplayed({ timeout: 1000 });
-    await googleCloudCalculatorPage.numberGPUChoice.click();
+    await googleCloudCalculatorPage.chooceFildes(
+      googleCloudCalculatorPage.numberGPU,
+      googleCloudCalculatorPage.numberGPUChoice
+    );
 
-    await googleCloudCalculatorPage.localSSD.click();
-    await googleCloudCalculatorPage.localSSDChoice.waitForDisplayed({ timeout: 1000 });
-    await googleCloudCalculatorPage.localSSDChoice.click();
+    await googleCloudCalculatorPage.chooceFildes(
+      googleCloudCalculatorPage.localSSD,
+      googleCloudCalculatorPage.localSSDChoice
+    );
 
-    await googleCloudCalculatorPage.location.click();
-    await googleCloudCalculatorPage.locationChoice.waitForDisplayed({ timeout: 1000 });
-    await googleCloudCalculatorPage.locationChoice.click();
+    await googleCloudCalculatorPage.chooceFildes(
+      googleCloudCalculatorPage.location,
+      googleCloudCalculatorPage.locationChoice
+    );
 
-    await googleCloudCalculatorPage.committedUsage.click();
-    await googleCloudCalculatorPage.committedUsageCoice.waitForDisplayed({ timeout: 1000 });
-    await googleCloudCalculatorPage.committedUsageCoice.click();
+    await googleCloudCalculatorPage.chooceFildes(
+      googleCloudCalculatorPage.committedUsage,
+      googleCloudCalculatorPage.committedUsageChoice
+    );
 
     await googleCloudCalculatorPage.btnEstimate.click();
   });

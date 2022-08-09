@@ -13,7 +13,7 @@ class GoogleCloudCalculatorPage extends Page {
     // return $("#select_112");
     return $("md-select[name='series']");
   }
-  get seriesChoiceN1() {
+  get seriesChoice() {
     // return $("#select_option_197");
     return $("md-option[value='n1']");
   }
@@ -67,7 +67,7 @@ class GoogleCloudCalculatorPage extends Page {
     // return $("#select_value_label_86");
     return $("md-select[placeholder='Committed usage']");
   }
-  get committedUsageCoice() {
+  get committedUsageChoice() {
     return $("#select_option_125");
   }
 
@@ -110,6 +110,12 @@ class GoogleCloudCalculatorPage extends Page {
 
   get btnSendEmail() {
     return $("button[aria-label='Send Email'");
+  }
+
+  async chooceFildes(el, elChoice) {
+    await el.click();
+    await elChoice.waitForDisplayed({ timeout: 5000 });
+    await elChoice.click();
   }
 }
 
