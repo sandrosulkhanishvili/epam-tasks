@@ -7,7 +7,6 @@ describe("hurtMePlenty", () => {
 
   before(async () => {
     await googleCloudMainPage.open();
-    await browser.maximizeWindow();
     await googleCloudMainPage.search(SEARCHTEXT);
 
     await googleSearchPage.searchResult.click();
@@ -18,33 +17,33 @@ describe("hurtMePlenty", () => {
     await googleCloudCalculatorPage.numInstances.setValue("4");
 
     await googleCloudCalculatorPage.series.click();
-    await browser.pause(1000);
+    await googleCloudCalculatorPage.seriesChoiceN1.waitForDisplayed({ timeout: 1000 });
     await googleCloudCalculatorPage.seriesChoiceN1.click();
 
     await googleCloudCalculatorPage.machineType.click();
-    await browser.pause(1000);
+    await googleCloudCalculatorPage.machineTypeChoice.waitForDisplayed({ timeout: 1000 });
     await googleCloudCalculatorPage.machineTypeChoice.click();
 
     await googleCloudCalculatorPage.addGPU.click();
 
     await googleCloudCalculatorPage.GPUType.click();
-    await browser.pause(1000);
+    await googleCloudCalculatorPage.GPUTypeChoice.waitForDisplayed({ timeout: 1000 });
     await googleCloudCalculatorPage.GPUTypeChoice.click();
 
     await googleCloudCalculatorPage.numberGPU.click();
-    await browser.pause(1000);
+    await googleCloudCalculatorPage.numberGPUChoice.waitForDisplayed({ timeout: 1000 });
     await googleCloudCalculatorPage.numberGPUChoice.click();
 
     await googleCloudCalculatorPage.localSSD.click();
-    await browser.pause(1000);
+    await googleCloudCalculatorPage.localSSDChoice.waitForDisplayed({ timeout: 1000 });
     await googleCloudCalculatorPage.localSSDChoice.click();
 
     await googleCloudCalculatorPage.location.click();
-    await browser.pause(1000);
+    await googleCloudCalculatorPage.locationChoice.waitForDisplayed({ timeout: 1000 });
     await googleCloudCalculatorPage.locationChoice.click();
 
     await googleCloudCalculatorPage.committedUsage.click();
-    await browser.pause(1000);
+    await googleCloudCalculatorPage.committedUsageCoice.waitForDisplayed({ timeout: 1000 });
     await googleCloudCalculatorPage.committedUsageCoice.click();
 
     await googleCloudCalculatorPage.btnEstimate.click();
