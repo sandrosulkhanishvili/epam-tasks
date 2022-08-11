@@ -6,7 +6,8 @@ class GoogleCloudCalculatorPage extends Page {
   }
 
   get numInstances() {
-    return $("#input_87");
+    // return $("#input_87");
+    return $("input[name='quantity']");
   }
 
   get series() {
