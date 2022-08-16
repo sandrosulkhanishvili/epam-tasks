@@ -259,6 +259,7 @@ exports.config = {
         "m_" +
         d.getSeconds() +
         "s";
+      // const date = d.toISOString();
       await browser.saveScreenshot(`./screenshots/${dateStringLiteral}.png`);
     }
   },

@@ -1,20 +1,19 @@
 const googleCloudMainPage = require("../pages/googleCloudMain.page");
 const googleSearchPage = require("../pages/googleSearch.page");
 const googleCloudCalculatorPage = require("../pages/googleCloudCalculator.page");
+const testData = require("../../resources/testData");
 
 describe("hurtMePlenty", () => {
-  const SEARCHTEXT = "Google Cloud Platform Pricing Calculator";
-
   before(async () => {
     await googleCloudMainPage.open();
-    await googleCloudMainPage.search(SEARCHTEXT);
+    await googleCloudMainPage.search(testData.searchText);
 
     await googleSearchPage.searchResult.click();
 
     await browser.switchToFrame(0);
     await browser.switchToFrame(0);
 
-    await googleCloudCalculatorPage.numInstances.setValue("4");
+    await googleCloudCalculatorPage.numInstances.setValue(testData.numberOfInstances);
 
     await googleCloudCalculatorPage.chooceFildes(
       googleCloudCalculatorPage.series,
@@ -57,21 +56,21 @@ describe("hurtMePlenty", () => {
   });
 
   it("should have correct provisioning model", async () => {
-    await expect(googleCloudCalculatorPage.testProvisiningModel).toHaveTextContaining("Provisioning model: Regular");
+    await expect(googleCloudCalculatorPage.testProvisiningModel).toHaveTextContaining(testData.provisioningModel);
   });
   it("should have correct instance type", async () => {
-    await expect(googleCloudCalculatorPage.testInstanceType).toHaveTextContaining("Instance type: n1-standard-8");
+    await expect(googleCloudCalculatorPage.testInstanceType).toHaveTextContaining(testData.instanceType);
   });
   it("should have correct region", async () => {
-    await expect(googleCloudCalculatorPage.testRegion).toHaveTextContaining("Region: Frankfurt");
+    await expect(googleCloudCalculatorPage.testRegion).toHaveTextContaining(testData.region);
   });
   it("should have correct SSD", async () => {
-    await expect(googleCloudCalculatorPage.testSSD).toHaveTextContaining("Local SSD: 2x375 GiB");
+    await expect(googleCloudCalculatorPage.testSSD).toHaveTextContaining(testData.ssd);
   });
   it("should have correct commitment term", async () => {
-    await expect(googleCloudCalculatorPage.testCommitmentTerm).toHaveTextContaining("Commitment term: 1 Year");
+    await expect(googleCloudCalculatorPage.testCommitmentTerm).toHaveTextContaining(testData.commitmentTerm);
   });
   it("should have correct estimated cost", async () => {
-    await expect(googleCloudCalculatorPage.testEstimatedCost).toHaveTextContaining("USD 1,081.20");
+    await expect(googleCloudCalculatorPage.testEstimatedCost).toHaveTextContaining(testData.price);
   });
 });
